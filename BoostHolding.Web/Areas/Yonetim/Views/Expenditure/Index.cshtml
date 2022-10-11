@@ -1,0 +1,68 @@
+﻿@using BoostHolding.Entities.Data
+@model IEnumerable<Expenditure>
+@{
+    ViewData["Title"] = "Request Of Expenditure";
+}
+<h2 class="mb-5" style="color: tomato ">Expenditure List</h2>
+
+<table class="table d-xxl-table-row table-hover h5 text-center" border="3">
+    <thead>
+        <tr>
+            <th>
+                Description
+            </th>
+            <th>
+                Date Of Request
+            </th>
+            <th>
+                Date Of Expenditure
+            </th>
+            <th>
+                Approval Status
+            </th>
+            <th colspan="2"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Description
+                </td>
+                <td>
+                    @item.RequestDate.ToShortDateString()
+                </td>
+                <td>
+                    @item.ExpenditureDate.ToShortDateString()
+                </td>
+                @if (item.Status == Status.Pending)
+                {
+                    <td class="table-primary">
+                        @item.Status
+                    </td>
+                }
+                @if (item.Status == Status.Accepted)
+                {
+                    <td class="table-success">
+                        @item.Status
+                    </td>
+                }
+                @if (item.Status == Status.Rejected)
+                {
+                    <td class="table-danger">
+                        @item.Status
+                    </td>
+                }
+
+                <td>
+                    @if (item.Status == Status.Pending)
+                    {
+                        <a class="btn btn-danger" asp-area="Yonetim" asp-controller="Expenditure" asp-action="Delete" asp-route-id="@item.Id">Cancel Request</a>
+                    }
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

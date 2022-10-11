@@ -1,0 +1,45 @@
+﻿@using BoostHolding.Entities.Data
+
+<h2 style="color:tomato">DETAILS</h2>
+<table class="table" border="3">
+
+    <tr>
+        <th>Date Of Request</th>
+        <td>@ViewBag.Expenditure.RequestDate</td>
+    </tr>
+
+    <tr>
+        <th>Date Of Expenditure</th>
+        <td>@ViewBag.Expenditure.ExpenditureDate</td>
+    </tr>
+
+    <tr>
+        <th>Amount</th>
+        <td>@ViewBag.Expenditure.Amount</td>
+    </tr>
+
+    <tr>
+        <th>Description</th>
+        <td colspan="2">@ViewBag.Expenditure.Description</td>
+    </tr>
+
+    <tr>
+        <th>Status</th>
+        <td colspan="2">@ViewBag.Expenditure.Status</td>
+    </tr>
+
+    <tr>
+        <th>Expenditure Type</th>
+        <td colspan="2">@ViewBag.Expenditure.ExpenditureType</td>
+    </tr>
+
+    <tr>
+        <th>Employee Name</th>
+        <td colspan="2">@ViewBag.Employee.Name</td>
+    </tr>
+
+    <tr>
+        <th>Employee LastName</th>
+        <td colspan="2">@ViewBag.Employee.LastName</td>
+    </tr>
+</table>

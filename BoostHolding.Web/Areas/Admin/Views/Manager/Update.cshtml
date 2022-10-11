@@ -1,0 +1,50 @@
+﻿@using BoostHolding.Web.Services
+@model UpdateEmployeeViewModel
+@inject UserSignedIn user
+@{
+    ViewData["Title"] = "Update Manager Informations";
+}
+<h2 class="mb-5" style="color: tomato ">UPDATE</h2>
+
+
+<div class="container " style="font-size:24px">
+    <form class="d-flex flex-column text-center justify-content-center align-items-center form-horizontal update-form" asp-action="Update" enctype="multipart/form-data" method="post">
+        <div class="form-group avatar">
+            <figure class="figure bg-danger">
+                <img asp-for="File" class="img-rounded img-responsive update-img" width="150" height="150" src="~/img/@user.GetUserPhoto()" alt="">
+            </figure>
+        </div>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" class="form-control" />
+
+        <div class="mb-4">
+            Photo
+            <input style="width: 370px;" type="file" asp-for="File" class="form-control update-file " />
+            <span asp-validation-for="File" class="text-danger"></span>
+        </div>
+        <div class="mb-2">
+            Phone Number
+            <input style="width: 370px;" type="tel" asp-for="PhoneNumber" placeholder="(05**-***-****)" class="form-control " />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+        <div class="mb-4">
+            Address
+            <textarea type="text" style="width: 370px; height: 100px; row-gap:normal" asp-for="Address" class="form-control"></textarea>
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group  col-6 ">
+            <input type="submit" value="Update" class="btn btn-primary update-btn col-6 " />
+        </div>
+        <div>
+            <a class="btn btn-danger" asp-action="Index">Back</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

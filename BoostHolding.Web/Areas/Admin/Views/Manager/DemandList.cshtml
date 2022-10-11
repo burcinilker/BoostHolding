@@ -1,0 +1,113 @@
+﻿@using BoostHolding.Entities.Data
+@model IEnumerable<Expenditure>
+@{
+    ViewData["Title"] = "Expenditure Of Employee List ";
+}
+<h2 class="mb-5" style="color:tomato">EXPENDITURE LIST</h2>
+
+
+<table class="table d-xxl-table-row table-hover text-dark text-center h5" border="3">
+    <thead class="text-center">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Amount
+            </th>
+            <th>
+                Unit
+            </th>
+            <th>
+                Date Of Request
+            </th>
+            <th>
+                Date Of Expenditure
+            </th>
+            <th>
+                Approval Status
+            </th>
+            <th colspan="2">
+                Select Status
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Employee.Name
+                </td>
+                <td>
+                    @item.Employee.LastName
+                </td>
+                <td>
+                    @item.Description
+                </td>
+                <td>
+                    @item.Amount
+                </td>
+                <td>
+                    @item.Unit
+                </td>
+                <td>
+                    @item.RequestDate.ToShortDateString()
+                </td>
+                <td>
+                    @item.ExpenditureDate.ToShortDateString()
+                </td>
+                @if (item.Status == Status.Pending)
+                {
+                    <td class="table-primary">
+                        @item.Status
+                    </td>
+                }
+                @if (item.Status == Status.Accepted)
+                {
+                    <td class="table-success">
+                        @item.Status
+                    </td>
+                }
+                @if (item.Status == Status.Rejected)
+                {
+                    <td class="table-danger">
+                        @item.Status
+                    </td>
+                }
+                @if (item.Status == Status.Pending)
+                {
+                    <td><a class="btn btn-success" asp-area="Yonetim" asp-controller="Expenditure" asp-action="AcceptPermit" asp-route-id="@item.Id">Accept Request</a></td>
+                    <td>
+                        <a class="btn btn-danger" asp-area="Yonetim" asp-controller="Expenditure" asp-action="RejectPermit" asp-route-id="@item.Id">Reject Request</a>
+                    </td>
+                }
+                else
+                {
+
+                    @if (item.Status == Status.Rejected)
+                    {
+                        <td>
+                            <a class="btn btn-success" asp-area="Yonetim" asp-controller="Expenditure" asp-action="AcceptPermit" asp-route-id="@item.Id">Accept Request</a>
+                        </td>
+                        <td></td>
+                    }
+                    else
+                    {
+                        <td></td>
+                        <td>
+                            <a class="btn btn-danger" asp-area="Yonetim" asp-controller="Expenditure" asp-action="RejectPermit" asp-route-id="@item.Id">Reject Request</a>
+                        </td>
+                    }
+
+                }
+            </tr>
+        }
+    </tbody>
+</table>

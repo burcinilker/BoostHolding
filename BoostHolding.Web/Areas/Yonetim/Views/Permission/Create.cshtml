@@ -1,0 +1,62 @@
+﻿@model CreatePermissionViewModel
+@inject BoostHolding.Web.Services.UserSignedIn user
+
+@{
+    ViewData["Title"] = user.GetFullName();
+}
+<h2 style="color:tomato">Permission Request</h2>
+          
+
+<div class="container" style="font-size:24px">
+    <div>
+        <form name="error" asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="row justify-content-center text-center">
+                <div class="col-md-6 ">
+<span style="color:red;" class="mb-4 text-center col-12">@Html.ValidationMessage("error")</span>
+                    <div class="mb-3 mt-3">
+                        Date Of Request
+                        <input type="date" min="2022-10-04" asp-for="DateOfRequest" class="form-control col-md-8 offset-2" />
+                        <span asp-validation-for="DateOfRequest" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        Date Of Start
+                        <input type="date" min="2022-10-04" asp-for="DateOfStart" class="form-control col-md-8 offset-2" />
+                        <span asp-validation-for="DateOfStart" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        Date Of End
+                        <input value="@DateTime.Now" min="2022-10-04" type="date" asp-for="DateOfEnd" class="form-control col-md-8 offset-2" />
+                        <span asp-validation-for="DateOfEnd" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        Type
+                        <select asp-for="TypesOfPermissionId" class="form-control col-md-8 offset-2" asp-items="@Model.TypeOfPermissions">
+                            <option>Please Select Your Permission Type</option>
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+            <div class="">
+                <div class="form-group mt-3  col-md-3 offset-5" >
+                    <input type="submit" value="Request For Permit" class="btn btn-primary mb-3 " />
+                </div>
+                    <a class="btn btn-outline-danger col-md-2 offset-5" asp-action="Index">Permission List</a>
+            </div>
+
+        </form>
+
+    </div>
+
+    
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

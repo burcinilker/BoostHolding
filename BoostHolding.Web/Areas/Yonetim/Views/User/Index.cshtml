@@ -1,0 +1,130 @@
+﻿@using BoostHolding.Entities.Data
+@model Employee
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+
+
+
+
+
+
+
+<div class="justify-content-center offset-1">
+    <div class="row  ">
+        <div class="col-lg-3 col-5 text-white text-center">
+
+            <div class="small-box bg-info">
+                <div class="inner h-100">
+                    <h3>@ViewBag.TotalPermission Days</h3>
+                    <h5>Remaining Permission Days</h5>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-5 text-white text-center">
+
+            <div class="small-box bg-success">
+                <div class="inner">
+                    <h3>@ViewBag.TotalAdvance ₺<sup style="font-size: 20px"></sup></h3>
+                    <h5>Remaining Advance Amount</h5>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-5 text-white text-center">
+
+            <div class="small-box bg-warning">
+                <div class="inner">
+                    <h3>@ViewBag.TotalExpenditure ₺</h3>
+                    <h5>Total Expenditure<br /> Spent</h5>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-5 text-white text-center">
+
+            <div class="small-box bg-danger ">
+                <div class="inner">
+                    <h3>@ViewBag.TotalDays Days</h3>
+                    <h5>Total Days Of <br />Work</h5>
+
+                    @*<div class="icon ">
+                            <i class="fas fa-comment "></i>
+                        </div>*@
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+<table class="table d-xxl-table-row table-hover mt-5 text-center" border="3">
+    <thead>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Department
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                LastName
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Phone Number
+            </th>
+            <th colspan="2"></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Title.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Department.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.PhoneNumber)
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-area="Yonetim" asp-controller="User" asp-action="Details" asp-route-id="@Model.Id">Details</a>
+            </td>
+            <td>
+                <a class="btn btn-success" asp-area="Yonetim" asp-controller="User" asp-action="update" asp-route-id="@Model.Id">Update</a>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+

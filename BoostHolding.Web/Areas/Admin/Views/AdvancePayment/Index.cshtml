@@ -1,0 +1,58 @@
+﻿
+@{
+}
+
+<h2 style="margin: 3rem 0;">Advance Request List</h2>
+
+<div style="border: 1px solid black; width: 100%">
+    <table class="table table-bordered border-dark">
+        <thead>
+            <tr>
+                <th scope="col">Employee</th>
+                <th scope="col">Request Date</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Unit</th>
+                <th scope="col">Description</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @*@foreach (var list in ViewBag.List)
+                {
+                    <tr>
+                        <th scope="col">@list.EmployeeName</th>
+                        <th scope="col">@list.RequestDate</th>
+                        <th scope="col">@list.Amount</th>
+                        <th scope="col">@list.Unit</th>
+                        <th scope="col">@list.Description</th>
+                        <td>
+                            <input type="button" class="btn btn-success" value="Accept" />
+                            <input type="button" class="btn btn-danger" value="Reject" />
+                        </td>
+                    </tr>
+                }*@
+            <tr>
+                <td>Ali Yılmaz</td>
+                <td>29.09.2022</td>
+                <td>2000</td>
+                <td>Turkish Liras</td>
+                <td>Testing Description 1</td>
+                <td>
+                    <input type="button" class="btn btn-success" value="Accept" />
+                    <input type="button" class="btn btn-danger" value="Reject" />
+                </td>
+            </tr>
+            <tr>
+                <td>Ayşe Karaca</td>
+                <td>30.08.2020</td>
+                <td>2250</td>
+                <td>US Dollars</td>
+                <td>Testing Description 2</td>
+                <td>
+                    <input type="button" class="btn btn-success" value="Accept" />
+                    <input type="button" class="btn btn-danger" value="Reject" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

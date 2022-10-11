@@ -1,0 +1,66 @@
+﻿@model CreateExpenditureViewModel
+
+@{
+    ViewData["Title"] = @ViewBag.Employee.Name + " " + @ViewBag.Employee.LastName;
+}
+
+<h2 style="color:tomato">Expenditure Request</h2>
+<div class="container" style="font-size:24px">
+    <br />
+    <div class=" text-center ">
+        <form asp-action="Create" enctype="multipart/form-data" method="post">
+            @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="mb-2 col-md-8 offset-2">
+                        Date of Request
+                        <input type="date" asp-for="RequestDate" min='1940-01-01' class="form-control" value="@DateTime.Now" />
+                        <span asp-validation-for="RequestDate" class="text-danger"></span>
+                    </div>
+                    <div class="mb-2 col-md-8 offset-2">
+                        Date of Expenditure
+                        <input type="date" asp-for="ExpenditureDate" min='1940-01-01' class="form-control" value="@DateTime.Now" />
+                        <span asp-validation-for="ExpenditureDate" class="text-danger"></span>
+                    </div>
+                    <div class="mb-2">
+                        Description
+                        <input type="text" asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="mb-2 col-md-8 offset-2">
+                        Document
+                        <label asp-for="Document" class="form-label"></label>
+                        <input type="file" asp-for="Document" class="form-control" />
+                        <span asp-validation-for="Document" class="text-danger"></span>
+                    </div>
+                    <div class="mb-2 col-md-4 offset-4">
+                        Amount
+                        <input type="number" asp-for="Amount" class="form-control" />
+                        <span asp-validation-for="Amount" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6 offset-3">
+                        <label for="demo_overview">Expenditure Unit</label>
+                        <select id="demo_overview" class="form-control" data-role="select-dropdown">
+                            <option>₺ (Turkish Lira)</option>
+                            <option>$ (US Dollar)</option>
+                            <option>€ (Euro)</option>
+                            <option>£ (British Pound)</option>
+                        </select>
+                    </div>
+                    <div class="">
+                        <div class="form-group mt-3">
+                            <input type="submit" value="Request For Expenditure" class="btn btn-primary " />
+                        </div>
+                            <a class="btn btn-outline-danger  col-md-4" asp-action="Index">Expenditure List</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,97 @@
+﻿@using BoostHolding.Entities.Data
+@{
+    ViewData["Title"] = @ViewBag.Employee.Name + " " + @ViewBag.Employee.LastName;
+}
+<h2 class="mb-3" style="color: tomato ">Details</h2>
+
+<table class="table" border="3">
+    <tr>
+        <th class="h3" colspan="4" style="text-align: center; justify-content: center">@ViewBag.Employee.Name @ViewBag.Employee.LastName</th>
+    </tr>
+    <tr>
+        <th>Name</th>
+        <td>@ViewBag.Employee.Name</td>
+        <th rowspan="3" align="justify"><img width="150" height="150" src="~/img/@ViewBag.Employee.ImageUrl" alt="employee"></th>
+    </tr>
+
+    <tr>
+        <th>Last Name</th>
+        <td>@ViewBag.Employee.LastName</td>
+    </tr>
+
+    <tr>
+        <th>E-Mail</th>
+        <td>@ViewBag.Employee.Email</td>
+    </tr>
+
+    <tr>
+        <th>Phone Number</th>
+        <td colspan="2">@ViewBag.Employee.PhoneNumber</td>
+    </tr>
+
+    <tr>
+        <th>Gender</th>
+        <td colspan="2">@ViewBag.Employee.Gender</td>
+    </tr>
+
+    <tr>
+        <th>Title</th>
+        <td colspan="2">@ViewBag.Employee.Title.Name</td>
+    </tr>
+
+    <tr>
+        <th>Identity Number</th>
+        <td colspan="2">@ViewBag.Employee.TcNumber</td>
+    </tr>
+
+    <tr>
+        <th>Address</th>
+        <td colspan="2">@ViewBag.Employee.Address</td>
+    </tr>
+
+    <tr>
+        <th>Date Of Birth</th>
+        <td colspan="2">@ViewBag.Employee.DateOfBirth.ToShortDateString()</td>
+    </tr>
+
+    <tr>
+        <th>Date Of Start</th>
+        <td colspan="2">@ViewBag.Employee.DateOfStart.ToShortDateString()</td>
+    </tr>
+
+
+    <tr>
+        <th>Date Of Leave</th>
+        @if (!@ViewBag.Employee.IsActive)
+        {
+            <td style="color:red;border:none" colspan="2">
+                @ViewBag.Employee.DateOfLeave.ToShortDateString()
+            </td>
+        }
+        else
+        {
+            <td colspan="2">
+            </td>
+        }
+
+    </tr>
+
+    <tr>
+        <th>Active/Passive</th>
+        @if (@ViewBag.Employee.IsActive)
+        {
+            <td style="color:teal; font-weight:700" colspan="2">
+                Active
+            </td>
+        }
+        else
+        {
+            <td style="color:red" colspan="2">
+                Passive
+            </td>
+        }
+
+    </tr>
+</table>
+<a class="btn btn-danger" asp-action="Index">Back</a>
+

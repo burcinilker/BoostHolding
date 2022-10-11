@@ -1,0 +1,78 @@
+﻿@using BoostHolding.Entities.Data
+@model IEnumerable<Permission>
+@{
+    ViewData["Title"] = "Request Of Permission : " + @ViewBag.Employee.Name + " " + @ViewBag.Employee.LastName;
+}
+<h2 class="mb-5" style="color: tomato ">Permission List</h2>
+
+
+<table class="table d-xxl-table-row table-hover text-dark text-center h5" border="3">
+    <thead>
+        <tr>
+            <th>
+                Type Of Permission
+            </th>
+            <th>
+                Date Of Request
+            </th>
+            <th>
+                Date Of Start
+            </th>
+            <th>
+                Date Of End
+            </th>
+            <th>
+                Approval Status
+            </th>
+            <th colspan="2">
+                Cancellation Status
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.TypesOfPermission.Name
+                </td>
+                <td>
+                    @item.DateOfRequest.ToShortDateString()
+                </td>
+                <td>
+                    @item.DateOfStart.ToShortDateString()
+                </td>
+                <td>
+                    @item.DateOfEnd.ToShortDateString()
+                </td>
+                @if (item.ApprovalStatus == "Waiting For Approval")
+                {
+                    <td class="table-primary">
+                        @item.ApprovalStatus
+                    </td>
+                }
+                @if (item.ApprovalStatus == "Approved")
+                {
+                    <td class="table-success">
+                        @item.ApprovalStatus
+                    </td>
+                }
+                @if (item.ApprovalStatus == "Rejected")
+                {
+                    <td class="table-danger">
+                        @item.ApprovalStatus
+                    </td>
+                }
+
+                <td>
+                    @if (item.ApprovalStatus == "Waiting For Approval")
+                    {
+                        <a class="btn btn-danger" asp-area="Yonetim" asp-controller="Permission" asp-action="Delete" asp-route-id="@item.Id">Cancel Request</a>
+                    }
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

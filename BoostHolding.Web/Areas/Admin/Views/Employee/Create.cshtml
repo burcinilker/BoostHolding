@@ -1,0 +1,150 @@
+﻿@model EmployeeViewModel
+
+@{
+    ViewData["Title"] = "Create Employee";
+}
+<style>
+    span{
+        font-size:1rem;
+    }
+</style>
+<h2 style="color:tomato">ADD EMPLOYEE</h2>
+<div class="container" style="font-size:24px">
+    <br />
+    <div>
+        <form asp-action="Create" enctype="multipart/form-data" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-2">
+                        Name
+                        <input type="text" asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="mb-2">
+                        Lastname
+                        <input type="text" asp-for="LastName" class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                    @*<div class="mb-2">
+            Department
+            <select asp-for="DepartmentId" class="form-control" asp-items="@(new SelectList(@ViewBag.Departments, "Id", "Name"))">
+                <option>Please Select Your Department</option>
+            </select>
+        </div>
+        <div class="mb-2">
+            Title
+            <select asp-for="TitleId" class="form-control" asp-items="@(new SelectList(@ViewBag.Titles, "Id", "Name"))">
+                <option>Please Select Your Title</option>
+            </select>
+        </div>*@
+
+                    <div class="mb-2">
+                        Department
+                        <select asp-for="DepartmentId" class="form-control" asp-items="@Model.Departments">
+                            <option>Please Select Your Department</option>
+                        </select>
+                    </div>
+                    <div class="mb-2">
+                        Title
+                        <select asp-for="TitleId" class="form-control" asp-items="@Model.Titles">
+                            <option>Please Select Your Title</option>
+                        </select>
+                    </div>
+
+
+                    <div class="mb-2">
+                        TC Number
+                        <input type="number" asp-for="TcNumber" maxlength="11" class="form-control" />
+                        <span asp-validation-for="TcNumber" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-2">
+
+                            Gender
+                        <div class="row mt-3">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-5 form-check">
+                                <input asp-for="Gender" class="form-check-input" type="radio" value="Male" checked>
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Male
+                                </label>
+                            </div>
+                            <div class="col-md-5 form-check">
+                                <input asp-for="Gender" class="form-check-input" type="radio" value="Female">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Female
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                </div>
+                <div class="col-md-6">
+                    @*<div class="mb-2">
+            Email
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>*@
+                    <div class="mb-2">
+                        Phone Number
+                        <input type="number" placeholder="(05**-***-****)" maxlength="11" asp-for="PhoneNumber" class="form-control" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-2">
+                        Address
+                        <input type="text" asp-for="Address" class="form-control" />
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
+                    <div class="mb-2">
+                        Date Of Birth
+                        <input type="date" asp-for="DateOfBirth" min='1940-01-01' class="form-control" value="@DateTime.Now" />
+                        <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                    </div>
+                    <div class="mb-2">
+                        Date Of Start
+                        <input type="date" asp-for="DateOfStart" min='1940-01-01' class="form-control" value="@DateTime.Now" />
+                        <span asp-validation-for="DateOfStart" class="text-danger"></span>
+                    </div>
+                    <div class="mb-2">
+                        Date Of Leave
+                        <input type="date" asp-for="DateOfLeave" min='2000-01-01' class="form-control" />
+                        <span asp-validation-for="DateOfLeave" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-2">
+                        <label asp-for="File" class="form-label"></label>
+                        <input type="file" asp-for="File" class="form-control" />
+                        <span asp-validation-for="File" class="text-danger"></span>
+                    </div>
+                    @*<div class="form-group form-check mt-3">
+            <label class="form-check-label">
+            <input class="form-check-input" asp-for="IsActive" /> Is Active
+            </label>
+        </div>*@
+
+                    <div class="form-group mt-3">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                        <a class="btn btn-info ml-5" asp-action="Index">Back to List</a>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col-md-4">
+                @*//dosya eklemek için enctype="multipart/form-data" bu yazmamız gerekiyor*@
+            </div>
+        </div>
+
+       
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,41 @@
+﻿@using BoostHolding.Entities.Identity
+@model User
+<link href="~/admin/css/admincss/login.css" rel="stylesheet" />
+<div class="container" !important>
+    <div class="screen">
+        <div class="screen__content">
+            <form asp-controller="Login" asp-action="index" class="login" method="post">
+                
+                <div class="login__field">
+                    <i class="login__icon fas fa-user"></i>
+                    <input asp-for="UserName" type="text" class="login__input" placeholder="User name / Email">
+                </div>
+                <div class="login__field">
+                    <input asp-for="Password" type="password" class="login__input" id="password" name="password" placeholder="Password" />
+                    <i class="login__icon fa-solid fa-eye" onclick="togglePassword()"></i>
+                </div>
+                <div class="login__field ml-5"><p>@ViewBag.FalsePassword</p></div>
+                <button class="button login__submit">
+                    <span class="button__text">Log In Now</span>
+                </button>
+                <div class="social-login">
+                    <h2><a class="btn btn-link" asp-controller="Login" asp-action="ForgetPassword">Forget Password</a></h2>
+                </div>
+            </form>
+        </div>
+        <div class="screen__background">
+            <span class="screen__background__shape screen__background__shape4"></span>
+            <span class="screen__background__shape screen__background__shape3"></span>
+            <span class="screen__background__shape screen__background__shape2"></span>
+            <span class="screen__background__shape screen__background__shape1"></span>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function togglePassword() {
+        var element = document.getElementById('password');
+        element.type = (element.type == 'password' ? 'text' : 'password');
+    }
+</script>

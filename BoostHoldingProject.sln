@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32804.467
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoostHolding.Web", "BoostHolding.Web\BoostHolding.Web.csproj", "{E47A9FE4-0796-4EE1-BF6A-E10B17FD19F2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoostHolding.BusinessLayer", "BoostHolding.BusinessLayer\BoostHolding.BusinessLayer.csproj", "{29683CFB-B834-4C28-AAFB-3FE7C100B570}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoostHolding.Entities", "BoostHolding.Entities\BoostHolding.Entities.csproj", "{C88A32FA-E923-4AC3-8F6D-7E2A70532DE2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoostHolding.DataAccessLayer", "BoostHolding.DataAccessLayer\BoostHolding.DataAccessLayer.csproj", "{7EB84C6A-BCD0-47A6-B85C-9BD85B8F96BB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F9319267-222B-489C-92E5-C0FCEBB93A99}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E47A9FE4-0796-4EE1-BF6A-E10B17FD19F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E47A9FE4-0796-4EE1-BF6A-E10B17FD19F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E47A9FE4-0796-4EE1-BF6A-E10B17FD19F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E47A9FE4-0796-4EE1-BF6A-E10B17FD19F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29683CFB-B834-4C28-AAFB-3FE7C100B570}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29683CFB-B834-4C28-AAFB-3FE7C100B570}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29683CFB-B834-4C28-AAFB-3FE7C100B570}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29683CFB-B834-4C28-AAFB-3FE7C100B570}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C88A32FA-E923-4AC3-8F6D-7E2A70532DE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C88A32FA-E923-4AC3-8F6D-7E2A70532DE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C88A32FA-E923-4AC3-8F6D-7E2A70532DE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C88A32FA-E923-4AC3-8F6D-7E2A70532DE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EB84C6A-BCD0-47A6-B85C-9BD85B8F96BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EB84C6A-BCD0-47A6-B85C-9BD85B8F96BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EB84C6A-BCD0-47A6-B85C-9BD85B8F96BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EB84C6A-BCD0-47A6-B85C-9BD85B8F96BB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {817970F9-E9C9-45F0-8F10-527DEA3FD9DD}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://dev.azure.com/burcinilkerr
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = BoostHolding.BusinessLayer\\BoostHolding.BusinessLayer.csproj
+		SccProjectName1 = BoostHolding.BusinessLayer
+		SccLocalPath1 = BoostHolding.BusinessLayer
+		SccProjectUniqueName2 = BoostHolding.DataAccessLayer\\BoostHolding.DataAccessLayer.csproj
+		SccProjectName2 = BoostHolding.DataAccessLayer
+		SccLocalPath2 = BoostHolding.DataAccessLayer
+		SccProjectUniqueName3 = BoostHolding.Entities\\BoostHolding.Entities.csproj
+		SccProjectName3 = BoostHolding.Entities
+		SccLocalPath3 = BoostHolding.Entities
+		SccProjectUniqueName4 = BoostHolding.Web\\BoostHolding.Web.csproj
+		SccProjectName4 = BoostHolding.Web
+		SccLocalPath4 = BoostHolding.Web
+	EndGlobalSection
+EndGlobal

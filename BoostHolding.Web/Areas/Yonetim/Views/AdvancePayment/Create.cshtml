@@ -1,0 +1,94 @@
+﻿@using BoostHolding.Web.Services
+@model CreateAdvancePaymentViewModel
+@inject UserSignedIn user
+@{
+    ViewData["Title"] = user.GetFullName();
+}
+
+<h2 class="mb-3" style="color: tomato ">Advance Request</h2>
+
+<div class="container" style="font-size:24px">
+    <div>
+        <form asp-action="Create" method="post" class="mt-5">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row justify-content-center text-center">
+                <div class="col-md-6">
+                    <span style="color:red;" class="mb-2 text-center">@Html.ValidationMessage("error")</span>
+                    <div class="mb-3 mt-2">
+                        Request Date
+                        <input type="date" asp-for="RequestDate" class="form-control col-md-6 offset-3 mt-2" />
+                        <span asp-validation-for="RequestDate" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        Description
+                        <input type="text" asp-for="Description" class="form-control mt-2 col-md-8 offset-2" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        Amount
+                        <input type="text" asp-for="Amount" class="form-control col-md-6 offset-3 mt-1" />
+                        <span asp-validation-for="Amount" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        Unit
+                        @*<select asp-for="Unit" class="form-control" asp-items="@"Html.GetEnumSelectList<>">
+                                <option>Please Select Your Permission Type</option>
+                            </select>*@
+                        <select class="mt-4" asp-for="Unit" asp-items="Html.GetEnumSelectList<BoostHolding.Entities.Data.Unit>()">
+                            <option selected="selected" value="">Please select</option>
+                        </select>
+                        <span asp-validation-for="Unit" class="text-danger" />
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="mt-5">
+                <div class="form-group mt-">
+                    <input type="submit" value="Send Request" class="btn btn-primary col-md-2 offset-5 " />
+
+                </div>
+            </div>
+            <a class="btn btn-outline-danger col-md-2 offset-5  " asp-action="Index">Advance List</a>
+
+
+            @*<div class="mb-3">
+                    <label for="" class="form-label">Reason for Request </label>
+                    <input type="text" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label for="" class="form-label">Amount</label>
+                    <input type="text" class="form-control">
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <label for="demo_overview">Currency Unit</label>
+                    <select id="demo_overview" class="form-control" data-role="select-dropdown">
+                        <option>₺ (Turkish Lira)</option>
+                        <option>$ (US Dollar)</option>
+                        <option>€ (Euro)</option>
+                        <option>£ (British Pound)</option>
+                    </select>
+                </div>
+
+
+
+
+                <button type="submit" class="btn btn-primary">Send Request</button>*@
+
+        </form>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

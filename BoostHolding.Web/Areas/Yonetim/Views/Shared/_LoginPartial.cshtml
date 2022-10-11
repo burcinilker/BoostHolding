@@ -1,0 +1,37 @@
+﻿@model EmployeeViewModel
+@*@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ApplicationUser user = null;
+    if (!string.IsNullOrEmpty(User.Identity.Name))
+        user = await UserManager.FindByNameAsync(User.Identity.Name);
+}*@
+
+@*<ul class="navbar-nav py-4 py-lg-0">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="nav-item">
+            <a class="nav-link px-lg-3 py-3 py-lg-4" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @Model.Name</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link px-lg-3 py-3 py-lg-4" href="#!" onclick="document.frmLogout.submit()">Logout</a>
+        </li>
+        @if (User.IsInRole("Administrator"))
+        {
+            <li class="nav-item">
+                <a class="nav-link px-lg-3 py-3 py-lg-4" asp-area="Admin" asp-controller="Home" asp-action="Index"><i class="fa-solid fa-gear"></i></a>
+            </li>
+        }
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link px-lg-3 py-3 py-lg-4" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link px-lg-3 py-3 py-lg-4" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </li>
+    }
+</ul>*@
+
+<form name="frmLogout" class="form-inline float-end" asp-area="Admin" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Login",  "Admin")"><a asp-area="Admin" asp-controller="Login" asp-action="Index">LOG OUT</a></form>
